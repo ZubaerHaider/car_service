@@ -97,7 +97,7 @@ class _BookingScreenState extends State<BookingScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: DropdownButton<String>(
                   value: dropdownValue,
-                  icon: const Icon(Icons.arrow_downward),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                   elevation: 16,
                   style: const TextStyle(color: Colors.deepPurple),
                   underline: Container(
