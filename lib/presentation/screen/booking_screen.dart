@@ -1,7 +1,6 @@
 import 'package:car_service/presentation/widget/custom_field.dart';
 import 'package:flutter/material.dart';
 
-const List<String> list = <String>['Chose', 'Two', 'Three', 'Four'];
 
 class BookingScreen extends StatefulWidget {
   const BookingScreen({super.key});
@@ -11,7 +10,15 @@ class BookingScreen extends StatefulWidget {
 }
 
 class _BookingScreenState extends State<BookingScreen> {
-  String dropdownValue = list.first;
+  String dropdownValue =  'Item 1';
+
+  var items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
 
   final _formKey = GlobalKey<FormState>();
 
@@ -95,27 +102,28 @@ class _BookingScreenState extends State<BookingScreen> {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: DropdownButton<String>(
+                child:  DropdownButton(
+
+                  // Initial Value
                   value: dropdownValue,
+
+                  // Down Arrow Icon
                   icon: const Icon(Icons.keyboard_arrow_down),
-                  elevation: 16,
-                  style: const TextStyle(color: Colors.deepPurple),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  onChanged: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      dropdownValue = value!;
-                    });
-                  },
-                  items: list.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
+
+                  // Array list of items
+                  items: items.map((String items) {
+                    return DropdownMenuItem(
+                      value: items,
+                      child: Text(items),
                     );
                   }).toList(),
+                  // After selecting the desired option,it will
+                  // change button value to selected value
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownValue = newValue!;
+                    });
+                  },
                 ),
               ),
 
