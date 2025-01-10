@@ -108,13 +108,18 @@ class _BookingScreenState extends State<BookingScreen> {
                   value: dropdownValue,
 
                   // Down Arrow Icon
-                  icon: const Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down,
+                  size: 27,),
 
                   // Array list of items
                   items: items.map((String items) {
                     return DropdownMenuItem(
                       value: items,
-                      child: Text(items),
+                      child: Text(
+                        items,style:
+                      const TextStyle(
+                        fontSize: 18,
+                      ),),
                     );
                   }).toList(),
                   // After selecting the desired option,it will
